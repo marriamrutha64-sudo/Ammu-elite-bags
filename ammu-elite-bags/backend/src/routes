@@ -1,0 +1,88 @@
+import { Router } from 'express';
+
+const router = Router();
+
+type Bag = {
+	id: number;
+	name: string;
+	category: string;
+	price: number;
+	offer: number;
+	stock: number;
+	image: string;
+	description: string;
+};
+
+const bags: Bag[] = [
+	{
+		id: 1,
+		name: 'Leather Handbag',
+		category: 'Handbags',
+		price: 2499,
+		offer: 10,
+		stock: 20,
+		image: 'lather.jpg',
+		description: 'Premium leather handbag with spacious compartments.'
+	},
+	{
+		id: 2,
+		name: 'Travel Backpack',
+		category: 'Backpacks',
+		price: 3299,
+		offer: 15,
+		stock: 12,
+		image: 'images.jpg',
+		description: 'Water-resistant travel backpack with a laptop compartment.'
+	},
+	{
+		id: 3,
+		name: 'Office Laptop Bag',
+		category: 'Laptop Bags',
+		price: 2999,
+		offer: 12,
+		stock: 18,
+		image: 'M.jpg',
+		description: 'Professional laptop bag for office and college.'
+	}
+];
+
+const orders: Array<Record<string, unknown>> = [];
+
+router.get('/bags', (_request, response) => {
+	response.json(bags);
+});
+
+router.get('/bags/:id', (request, response) => {
+	const bag = bags.find((item) => item.id === Number(request.params.id));
+
+	if (!bag) {
+		response.status(404).json({ message: 'Bag not found' });
+		return;
+	}
+
+	response.json(bag);
+});
+
+router.post('/orders', (request, response) => {
+	const { customer, items } = request.body;
+
+	if (!customer?.name || !customer?.phone || !customer?.address || !Array.isArray(items) || items.length === 0) {
+		response.status(400).json({ message: 'Customer details and cart items are required' });
+		return;
+	}
+
+	const order = {
+		id: `order-${Date.now()}`,
+		...request.body,
+		createdAt: new Date().toISOString()
+	};
+
+	orders.push(order);
+	response.status(201).json(order);
+});
+
+router.get('/orders', (_request, response) => {
+	response.json(orders);
+});
+
+export default router;

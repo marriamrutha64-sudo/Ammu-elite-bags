@@ -1,0 +1,509 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff;
+    color: #222;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    width: 100%;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #ffffff;
+
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo span {
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #9b4d68;
+}
+
+.logo small {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #777;
+}
+
+
+/* NAVIGATION */
+
+.navbar {
+    display: flex;
+    gap: 28px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #9b4d68;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(30, 20, 25, 0.55),
+            rgba(30, 20, 25, 0.55)
+        ),
+        linear-gradient(135deg, #e7c9d3, #f8e9ed);
+
+    padding: 60px 20px;
+}
+
+
+.hero-content {
+    max-width: 700px;
+    color: white;
+}
+
+
+.small-title {
+    font-size: 14px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+
+.hero h1 {
+    font-size: 52px;
+    margin-bottom: 15px;
+}
+
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+.hero-btn {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 13px 30px;
+
+    background: #ffffff;
+    color: #9b4d68;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.hero-btn:hover {
+    background: #9b4d68;
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   CATEGORY SECTION
+========================= */
+
+.categories-section {
+    padding: 80px 7%;
+    background: #fff;
+}
+
+
+/* HEADING */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+.section-heading p {
+    color: #9b4d68;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+.section-heading h2 {
+    font-size: 36px;
+
+    margin-bottom: 10px;
+
+    color: #222;
+}
+
+
+.section-heading span {
+    color: #777;
+
+    font-size: 15px;
+}
+
+
+/* =========================
+   CATEGORY GRID
+========================= */
+
+.categories-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+
+    max-width: 1300px;
+
+    margin: auto;
+}
+
+
+/* =========================
+   CATEGORY CARD
+========================= */
+
+.category-card {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: #fff;
+
+    border: 1px solid #eee;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+
+    transition: all 0.35s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* TOP LINE */
+
+.category-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: #9b4d68;
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: 0.3s;
+}
+
+
+.category-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* CARD HOVER */
+
+.category-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.12);
+
+    border-color: #ead2da;
+}
+
+
+/* =========================
+   CATEGORY ICON
+========================= */
+
+.category-icon {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f9edf1;
+
+    border-radius: 50%;
+
+    font-size: 34px;
+
+    transition: 0.3s;
+}
+
+
+.category-card:hover .category-icon {
+    transform: scale(1.1) rotate(5deg);
+
+    background: #f1dce3;
+}
+
+
+/* =========================
+   CARD TEXT
+========================= */
+
+.category-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 12px;
+
+    color: #333;
+}
+
+
+.category-card p {
+    font-size: 13px;
+
+    color: #777;
+
+    line-height: 1.7;
+
+    min-height: 65px;
+}
+
+
+/* =========================
+   SHOP BUTTON
+========================= */
+
+.category-card a {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    text-decoration: none;
+
+    color: #9b4d68;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.category-card a:hover {
+    color: #6f3047;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    background: #21181c;
+
+    color: white;
+}
+
+
+.footer h2 {
+    font-size: 25px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+
+.footer p {
+    color: #d8cbd0;
+
+    font-size: 13px;
+}
+
+
+.footer .copyright {
+    margin-top: 20px;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    .categories-container {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .header {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 18px 5%;
+    }
+
+
+    .navbar {
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+
+    .navbar a {
+        font-size: 12px;
+    }
+
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+
+    .hero p {
+        font-size: 14px;
+    }
+
+
+    .categories-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .categories-section {
+        padding: 60px 5%;
+    }
+
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+
+    .categories-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+
+    .category-card {
+        padding: 30px 20px;
+    }
+
+}
